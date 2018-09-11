@@ -1,0 +1,32 @@
+.row{
+    display: flex !important;
+    margin: 1em;
+
+}
+.column1{
+    flex: 1.5;
+    margin: 1em;
+
+}
+.column2{
+    flex: 1;
+    margin: 1em;
+}
+.main{
+    height: 100%;
+    width: 100%;
+    /* background-color: gray; */
+    position: absolute;
+
+}
+.ScrollStyle
+{
+    
+    overflow-y: auto;
+    height: 90%;
+}
+
+.listHeight
+{
+    height: 500px;
+}
