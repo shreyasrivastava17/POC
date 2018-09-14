@@ -1,26 +1,32 @@
-<div class="main">
-  <mat-card class="row">
-      <div class="column1">
-        <mat-card class="card">
-          <video src = "abc.mp4"  width="320" height="500"></video>
-        </mat-card>
+<mat-card class="row bck">
+  <div class="column1">
+    <mat-card class="card">
+      <div class="txtCenter">
+        <mat-card-title class="fontsize">Live Camera Feed</mat-card-title>
       </div>
+      <video class="fit" src="./../../assets/output.mp4" width="100%" height="100%" controls autoplay></video>
+    </mat-card>
+  </div>
 
-      <div class="column2">
-        <mat-card class="listHeight">
-            <mat-card-title>Customers</mat-card-title>
-            <div class="ScrollStyle">
-            <mat-list *ngFor="let cust of customers" >
-                <mat-list-item>
-                  {{cust[0]}} 
-                  <span *ngIf = "cust[1] == 'yes'">
-                      <mat-icon>star</mat-icon>
-                  </span> 
-                </mat-list-item>
-              </mat-list>
-            </div>
-        </mat-card>
+  <div class="column2">
+    <mat-card class="listHeight">
+      <div class="txtCenter">
+        <mat-card-title class="fontsize">Customers</mat-card-title>
       </div>
-  </mat-card>
-  
-</div>
+      <div class="ScrollStyle">
+        <span matLine>Name</span>
+        <span matLine class="faulltcountstyle">
+          Significance
+        </span>
+        <mat-list *ngFor="let cust of customers">
+          <mat-list-item>
+            <span matLine class="">{{cust[0]}}</span>
+            <span *ngIf="cust[1] == 'yes'" class="faulltcountstyle">
+              <mat-icon>star</mat-icon>
+            </span>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>

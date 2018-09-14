@@ -9,31 +9,31 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DashboardComponent implements OnInit {
   result:any;
-  customers:any=[["abd","yes"]]
+  customers:any=[["Shubham Chaudhari","yes"],["Akshay Kakkar","no"],["Shreya Srivastava","yes"],["Anupam Behera","yes"],["Trishla Chaurasia","no"]]
   customer:any = []
   isValid: Boolean = true;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    interval(2000 ).subscribe(x => {
-      // this.customers.push("svc")
-      this.http.get('http://127.0.0.1:5000/GetCustomerNames')
-      .subscribe((res: any) => {
-        this.customers=[]
-        for(var i=0;i<res.length;i++)
-        {
-          console.log(res[i]['Name'])
-          this.customer.push(res[i]['Name'])
-          this.customer.push(res[i]['IsSignificant'])
-          this.customers.push(this.customer)
-          this.customer = []
-          console.log(this.customers)
-        }     
-      }, error => {
-        console.log(error);
+    // interval(2000 ).subscribe(x => {
+    //   // this.customers.push("svc")
+    //   this.http.get('http://127.0.0.1:5000/GetCustomerNames')
+    //   .subscribe((res: any) => {
+    //     this.customers=[]
+    //     for(var i=0;i<res.length;i++)
+    //     {
+    //       console.log(res[i]['Name'])
+    //       this.customer.push(res[i]['Name'])
+    //       this.customer.push(res[i]['IsSignificant'])
+    //       this.customers.push(this.customer)
+    //       this.customer = []
+    //       console.log(this.customers)
+    //     }     
+    //   }, error => {
+    //     console.log(error);
        
-      });
-    });
+    //   });
+    // });
   }
 
 }

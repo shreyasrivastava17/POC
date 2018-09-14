@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -43,11 +45,14 @@ import {
   
   
 } from '@angular/material';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    SidebarComponent,
+
   ],
   imports: [
     HttpClientModule,
@@ -87,7 +92,9 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
