@@ -34,43 +34,46 @@ def sql_database():
 
     global customer_cache
     global start_time
-    result_list=[]
-    extra_cust=[]
+    count=0
     while(True):
-        
+        # print(count)
+        result_list=[]
+        extra_cust=[]
         flag=False
             # if((time.time() - start_time)/(1000*60*60) >3 ):
         print((time.time() - start_time))
         if((time.time() - start_time) >5555):
-            print("*********************customer cache")
+            # print("*********************customer cache")
             customer_cache = []
             start_time = time.time()
 
-        print("ok")
-        fname=["shubham","shreya"]
+        # print("ok")
+        fname=["akshata","shreya"]
 
         #for testing purposes
         
-        if(time.time() - start_time>20):
-            fname.append("akshay")
+        if(time.time() - start_time>5):
+            fname.append("POPO")
 
-        print(customer_cache)
+
+        # print(customer_cache)
         for name in fname:
             if(name not in customer_cache):
                 flag=True
-                print(name)
+                # print("name*****************",name)
                 extra_cust.append(name)
-        print("as55555555555a",extra_cust)
-        # if(flag==False):
-        #     return "Duplicate"
-        if(flag==True):
-            
-            results = sql_query2(''' SELECT person_id, first_name,last_name,firebase_id,IsSignificant,mobile FROM Customers_master where first_name in (%s)'''% ','.join('?'*len(extra_cust)),extra_cust)
 
-            insert_query = """ INSERT INTO Customers (id,Name,IsSignificant,firebase_id, mobile)
-            VALUES (1, 'Paul', 32, 'California', 20000.00 ); """
-            # c.execute('SELECT * FROM distro WHERE id IN (%s)' %
-            #                        ','.join('?'*len(desired_ids)), desired_ids)
+        # print("extra cust******",extra_cust)
+
+        if(flag==True):
+            # print("***************DB CALL********************")
+            results = sql_query2(''' SELECT person_id, first_name,last_name,firebase_id,IsSignificant,mobile FROM Customers_master where first_name in (%s)'''% ','.join('?'*len(extra_cust)),extra_cust)
+            count+=1
+           
+            # print("Result*****",results)
+            if(len(results)==0):
+                for name in extra_cust:
+                    customer_cache.append(name)
 
             for result in results:
 
@@ -90,7 +93,7 @@ def sql_database():
                 sql_edit_insert(''' INSERT INTO Customers (id,Name,IsSignificant,firebase_id, mobile) VALUES (?,?,?,?,?)''', (result_dict['ID'],name, result_dict['IsSignificant'], result_dict['firebaseid'], result_dict['mobile number']))
                 extra_cust = []
             #firebase
-
+        # return "str"
             # return simplejson.dumps(result_list)
 
 

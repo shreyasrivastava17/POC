@@ -3,7 +3,7 @@ import sqlite3
 import pandas as pd
 
 
-data_url = '/home/allahbaksh/flaskrbs/rbsdata.csv'
+data_url = '/home/allahbaksh/RBS/flaskrbs/rbsdata.csv'
 headers = ['person_id','first_name','last_name','mobile','Relationship_manager','firebase_id','IsSignificant']
 Customers_master = pd.read_csv(data_url, header=None, names=headers)
 
